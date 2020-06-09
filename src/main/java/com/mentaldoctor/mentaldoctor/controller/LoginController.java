@@ -1,11 +1,9 @@
 package com.mentaldoctor.mentaldoctor.controller;
 
+import com.mentaldoctor.mentaldoctor.model.dto.RespBean;
 import com.mentaldoctor.mentaldoctor.model.entity.User;
 import com.mentaldoctor.mentaldoctor.service.api.AuthService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -28,9 +26,9 @@ public class LoginController {
             @ApiImplicitParam(paramType = "query",name = "password",value = "密码",required = true)
     })
     @PostMapping("/login")
-    public String Login(@RequestParam("username") String username,@RequestParam("password") String password){
+    public RespBean Login(@RequestParam("username") String username, @RequestParam("password") String password){
         String token=authService.login(username,password);
-        return token;
+        return RespBean.ok("登陆成功",token);
     }
 
     @ApiOperation(value = "注册",notes = "用户注册")
