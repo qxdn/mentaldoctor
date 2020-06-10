@@ -1,4 +1,4 @@
-package com.mentaldoctor.mentaldoctor;
+package com.mentaldoctor.mentaldoctor.daotest;
 
 import com.mentaldoctor.mentaldoctor.dao.UserDao;
 import com.mentaldoctor.mentaldoctor.model.entity.Role;

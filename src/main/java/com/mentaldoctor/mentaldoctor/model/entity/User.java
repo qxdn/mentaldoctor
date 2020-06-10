@@ -31,7 +31,7 @@ public class User implements UserDetails {
 
     @ApiModelProperty(value = "用户ID")
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private long uuid;
 
@@ -42,6 +42,7 @@ public class User implements UserDetails {
 
     @NotNull
     @ApiModelProperty(value = "密码",required = true)
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
