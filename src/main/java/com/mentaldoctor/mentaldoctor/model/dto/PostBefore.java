@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 @Data
-@ApiModel(value = "前端返回的帖子")
+@ApiModel(description = "前端返回的帖子")
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostBefore {

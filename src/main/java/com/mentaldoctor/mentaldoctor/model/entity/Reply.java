@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@ApiModel(value = "回复")
+@ApiModel(value = "Reply",description = "回复")
 public class Reply implements Serializable {
 
     /**

@@ -21,7 +21,7 @@ import java.util.List;
 
 @Data
 @Entity
-@ApiModel(value = "用户实体类")
+@ApiModel(description = "用户实体类")
 public class User implements UserDetails {
 
     /**

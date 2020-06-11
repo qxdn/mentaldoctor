@@ -10,4 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface PostDao extends JpaRepository<Post,Integer> {
 
     Page<Post> findAllByOrderByCreateTimeDesc(Pageable pageable);
+
+    Post findPostById(Integer id);
+
+
 }

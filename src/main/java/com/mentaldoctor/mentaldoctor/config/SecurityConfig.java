@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //TODO:配置权限
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //禁止默认跨域政策
+        //禁止默认session政策
         http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)  //不创建session
                 .and()

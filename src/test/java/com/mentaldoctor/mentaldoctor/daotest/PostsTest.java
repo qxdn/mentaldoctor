@@ -5,6 +5,8 @@ import com.mentaldoctor.mentaldoctor.model.entity.Post;
 import com.mentaldoctor.mentaldoctor.model.entity.User;
 import com.mentaldoctor.mentaldoctor.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
@@ -52,5 +54,11 @@ public class PostsTest {
         for(Post post:postList){
             System.out.println(post);
         }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1,2,3,4})
+    public void findByIdTest(Integer id){
+        System.out.println(postDao.findPostById(id));
     }
 }

@@ -40,7 +40,7 @@ public class PostController {
     @ApiOperation(value = "发布一个帖子")
     @ApiImplicitParam(paramType = "body")
     @PostMapping("/")
-    public Post publishPost(@Validated PostBefore postBefore){
+    public Post publishPost(@RequestBody @Validated PostBefore postBefore){
         return postService.insertPost(postBefore);
     }
 }

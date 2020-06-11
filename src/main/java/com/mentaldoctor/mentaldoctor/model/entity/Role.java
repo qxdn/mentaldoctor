@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Entity
 @Data
-@ApiModel(value = "用户角色类")
+@ApiModel(description = "用户角色类")
 public class Role implements Serializable {
 
     /**

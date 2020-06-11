@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@ApiModel(value = "主题帖子")
+@ApiModel(value = "Post",description = "主题帖子")
 public class Post implements Serializable {
 
     /**

@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@ApiModel(value = "返回值")
+@ApiModel(description = "返回值")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
