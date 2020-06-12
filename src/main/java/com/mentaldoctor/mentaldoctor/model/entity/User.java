@@ -2,6 +2,8 @@ package com.mentaldoctor.mentaldoctor.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -42,7 +44,6 @@ public class User implements UserDetails {
 
     @NotNull
     @ApiModelProperty(value = "密码",required = true)
-    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
@@ -101,5 +102,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enable;
+    }
+
+    @JsonIgnore
+    public String getPassword(){
+        return password;
+    }
+
+    @JsonProperty
+    public void setPassword(String password){
+        this.password=password;
     }
 }
