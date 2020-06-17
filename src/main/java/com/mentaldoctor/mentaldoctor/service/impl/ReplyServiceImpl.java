@@ -35,6 +35,7 @@ public class ReplyServiceImpl implements ReplyService {
     public Reply insertReply(ReplyBefore replyBefore) {
         Reply reply=replyBefore2Reply(replyBefore);
         Post post=reply.getPost();
+        post.setUpdateTime(new Date());
         post.setReplyCounts(post.getReplyCounts()+1);
         reply.setPost(post);
         reply=replyDao.save(reply);

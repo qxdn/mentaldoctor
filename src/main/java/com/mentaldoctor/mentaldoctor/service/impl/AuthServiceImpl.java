@@ -7,6 +7,7 @@ import com.mentaldoctor.mentaldoctor.util.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -70,5 +71,21 @@ public class AuthServiceImpl implements AuthService {
             existed=true;
         }
         return existed;
+    }
+
+    @Override
+    public User isLogin(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        //有登陆用户就返回登录用户，没有就返回null
+        if (authentication != null) {
+            if (authentication instanceof AnonymousAuthenticationToken) {
+                return null;
+            }
+
+            if (authentication instanceof UsernamePasswordAuthenticationToken) {
+                return (User) authentication.getPrincipal();
+            }
+        }
+        return null;
     }
 }

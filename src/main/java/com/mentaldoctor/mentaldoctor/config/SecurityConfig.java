@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -53,7 +54,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)  //不创建session
                 .and()
                 .authorizeRequests()
-                .antMatchers("/swagger-ui.html#/").permitAll()  //TODO:有待更改
+                .antMatchers("/swagger-ui.html#/","/login","/register","/isLogin").permitAll()  //TODO:有待更改
+                .antMatchers(HttpMethod.GET,"/post/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/post/").hasRole("normal")
                 .anyRequest().permitAll();
                 //TODO:有待修改
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);

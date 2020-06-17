@@ -29,7 +29,7 @@ public class PostServiceTest {
     @ParameterizedTest
     @CsvSource({"0,10","1,2"})
     public void getAllTest(int page,int size){
-        Page<Post> posts=postService.findPostByPageOrderByCreateTimeDesc(page,size);
+        Page<Post> posts=postService.findPostByPageOrderByUpdateTimeDesc(page,size);
         System.out.println("totalElements:"+posts.getTotalElements());
         System.out.println("totalPage:"+posts.getTotalPages());
         List<Post> postList=posts.getContent();

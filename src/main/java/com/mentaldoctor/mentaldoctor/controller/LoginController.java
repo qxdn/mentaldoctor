@@ -7,10 +7,7 @@ import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -37,5 +34,18 @@ public class LoginController {
     public User register(@RequestBody  @Validated User user){
         //TODO:有待修改
         return authService.register(user);
+    }
+
+    @ApiOperation(value = "是否登录")
+    @RequestMapping("/isLogin")
+    public RespBean isLogin(){
+        User user=authService.isLogin();
+        RespBean respBean;
+        if(user==null){
+           respBean = RespBean.error(null);
+        }else {
+            respBean = RespBean.ok("",user);
+        }
+        return respBean;
     }
 }

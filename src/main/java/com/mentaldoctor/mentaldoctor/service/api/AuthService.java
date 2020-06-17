@@ -25,4 +25,6 @@ public interface AuthService {
      * @return
      */
     public boolean isUserExisted(String username);
+
+    public User isLogin();
 }

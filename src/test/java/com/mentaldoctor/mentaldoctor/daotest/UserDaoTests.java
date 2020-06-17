@@ -29,6 +29,10 @@ public class UserDaoTests {
         role.setName("ROLE_admin");
         role.setDescription("管理员");
         roles.add(role);
+        Role role2=new Role();
+        role2.setName("ROLE_normal");
+        role2.setDescription("普通用户");
+        roles.add(role2);
         user.setUsername("qxdn");
         user.setPassword(passwordEncoder.encode("123456"));
         user.setRoles(roles);

@@ -32,6 +32,7 @@ public class PostsTest {
         posts.setTitle("测试主题");
         posts.setContent("测试内容");
         posts.setCreateTime(new Date());
+        posts.setUpdateTime(posts.getCreateTime());
         posts.setUser(user);
         postDao.save(posts);
     }
@@ -47,7 +48,7 @@ public class PostsTest {
     @Test
     public void findPostsByPage(){
         Pageable pageable=PageRequest.of(0,4);
-        Page<Post> posts=postDao.findAllByOrderByCreateTimeDesc(pageable);
+        Page<Post> posts=postDao.findAllByOrderByUpdateTimeDesc(pageable);
         System.out.println("totalElements:"+posts.getTotalElements());
         System.out.println("totalPage:"+posts.getTotalPages());
         List<Post> postList=posts.getContent();

@@ -30,6 +30,6 @@ public class Role implements Serializable {
 
     @NotNull
     @ApiModelProperty(value = "角色中文名",required = true)
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String description;
 }
