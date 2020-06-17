@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -38,8 +39,9 @@ public class User implements UserDetails {
     private long uuid;
 
     @NotNull
+    @Length(max = 25)
     @ApiModelProperty(value = "用户名",required = true)
-    @Column(unique = true,nullable = false)
+    @Column(unique = true,nullable = false,length = 25)
     private String username;
 
     @NotNull
@@ -52,8 +54,9 @@ public class User implements UserDetails {
     private boolean enable=true;
 
     @Email
+    @Length(max = 35)
     @ApiModelProperty(value = "邮箱")
-    @Column(unique = true)
+    @Column(unique = true, length = 35)
     private String email;
 
     @ApiModelProperty(value = "创建日期")
