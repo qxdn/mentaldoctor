@@ -54,6 +54,8 @@ public class PostServiceImpl implements PostService {
     @Override
     public PostBack findPostAndReplyByPostId(int postId,int page,int size) {
         Post post = postDao.findPostById(postId);
+        post.setBrowses(post.getBrowses()+1);
+        post = postDao.save(post);
         Page<Reply> replyPage=replyDao.findAllByPostId(postId,PageRequest.of(page,size));
         PostBack postBack=new PostBack();
         postBack.setPost(post);

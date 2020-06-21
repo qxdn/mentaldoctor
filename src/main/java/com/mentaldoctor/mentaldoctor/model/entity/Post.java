@@ -53,4 +53,8 @@ public class Post implements Serializable {
     @ApiModelProperty(value = "回复数")
     @Column(nullable = false)
     private Integer replyCounts=0;
+
+    @ApiModelProperty(value = "浏览数")
+    @Column(nullable = false)
+    private Integer browses=0;
 }
