@@ -58,4 +58,16 @@ public class PostController {
         PostBack postBack = postService.findPostAndReplyByPostId(id, page, size);
         return postBack;
     }
+
+    @ApiOperation(value = "根据title查找一个帖子")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "title",required = true,value = "主题"),
+            @ApiImplicitParam(name = "page",value = "查询的页数",defaultValue = "0"),
+            @ApiImplicitParam(name = "size",value = "一页的元素个数",defaultValue = "10")
+    })
+    @GetMapping("/search")
+    public Page<Post> getPostByTitleLike(@RequestParam(name = "title",required = true)String title,@RequestParam(name = "page",defaultValue = "0")int page,@RequestParam(name = "size",defaultValue = "10")int size){
+        Page<Post> postPage=postService.findPostWhereTitleLike(title, page, size);
+        return postPage;
+    }
 }

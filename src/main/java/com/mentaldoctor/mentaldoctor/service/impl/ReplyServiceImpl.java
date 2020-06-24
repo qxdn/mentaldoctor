@@ -43,9 +43,11 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     private Reply replyBefore2Reply(ReplyBefore replyBefore){
+        log.debug(replyBefore.toString());
         Reply reply=new Reply();
         reply.setContent(replyBefore.getContent());
         User user=userDao.findByUuid(replyBefore.getUuid());
+        log.debug(user.toString());
         Post post=postDao.findPostById(replyBefore.getPostId());
         reply.setPost(post);
         reply.setUser(user);

@@ -65,6 +65,11 @@ public class PostServiceImpl implements PostService {
         return postBack;
     }
 
+    @Override
+    public Page<Post> findPostWhereTitleLike(String title, int page, int size) {
+        return postDao.findByTitleLike('%'+title+'%',PageRequest.of(page,size));
+    }
+
     private Post postBefore2Post(PostBefore postBefore){
         Post post=new Post();
         post.setTitle(postBefore.getTitle());

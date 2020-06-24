@@ -13,5 +13,5 @@ public interface PostDao extends JpaRepository<Post,Integer> {
 
     Post findPostById(Integer id);
 
-
+    Page<Post> findByTitleLike(String title,Pageable pageable);
 }

@@ -14,4 +14,6 @@ public interface PostService {
     public Page<Post> findPostByPageOrderByUpdateTimeDesc(int page, int size);
 
     public PostBack findPostAndReplyByPostId(int postId,int page,int size);
+
+    public Page<Post> findPostWhereTitleLike(String title,int page,int size);
 }

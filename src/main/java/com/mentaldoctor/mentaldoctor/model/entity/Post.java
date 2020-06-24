@@ -37,12 +37,12 @@ public class Post implements Serializable {
 
     @ApiModelProperty(value = "创建时间")
     @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-mm-dd,hh:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
     @ApiModelProperty(value = "更新时间")
     @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-mm-dd,hh:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date updateTime;
 
     @ApiModelProperty(value = "创建用户")
